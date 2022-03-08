@@ -8,14 +8,17 @@ const App = () => {
   const todoAddHandler = (text: string) => {
     console.log(text)
     // setList(...whatToDo, { id: Math.random().toString(), text })
-    setList([...list, { id: Math.random().toString(), text: text }])
+    setList((prevTodos) => [
+      ...prevTodos,
+      { id: Math.random().toString(), text: text },
+    ])
   }
   return (
     <div className="App">
-      {/* Add todos */}
+      {/* Add to do s */}
       <NewToDo handler={todoAddHandler} />
-      {/*Render todos */}
-      <TodoList items={list} test="seddik" />
+      {/*Render to do s */}
+      <TodoList items={list} />
     </div>
   )
 }

@@ -1,17 +1,16 @@
 import { JsxElement } from "typescript"
 
-interface TodoListProps<T> {
+interface TodoListProps {
   items: { id: string; text: string }[]
-  test: T
 }
 
-const TodoList = (props: TodoListProps<string>) => {
-  const { items, test } = props
+const TodoList = (props: TodoListProps) => {
+  const { items } = props
   return (
     <ul>
       {items.map((todo) => (
         <li key={todo.id} id={todo.id}>
-          {todo.text + " " + test}
+          {todo.text}
         </li>
       ))}
     </ul>
