@@ -1,16 +1,16 @@
-import { JsxElement } from "typescript"
-
 interface TodoListProps {
   items: { id: string; text: string }[]
+  handler: Function
 }
 
 const TodoList = (props: TodoListProps) => {
-  const { items } = props
+  const { items, handler } = props
   return (
     <ul>
       {items.map((todo) => (
         <li key={todo.id} id={todo.id}>
-          {todo.text}
+          <span>{todo.text}</span>
+          <button onClick={() => handler(todo.id)}>DELETE</button>
         </li>
       ))}
     </ul>

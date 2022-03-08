@@ -13,12 +13,17 @@ const App = () => {
       { id: Math.random().toString(), text: text },
     ])
   }
+  const todoDeleteHandler = (todoId: string) => {
+    setList((prevTodos) => {
+      return prevTodos.filter((todo) => todo.id !== todoId)
+    })
+  }
   return (
     <div className="App">
       {/* Add to do s */}
       <NewToDo handler={todoAddHandler} />
       {/*Render to do s */}
-      <TodoList items={list} />
+      <TodoList items={list} handler={todoDeleteHandler} />
     </div>
   )
 }
