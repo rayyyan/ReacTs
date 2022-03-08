@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 interface NewToDoProps {
-  handler: Function
+  handler: (id: string) => void
 }
 export const NewToDo = (props: NewToDoProps) => {
   const { handler } = props

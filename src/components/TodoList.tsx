@@ -1,6 +1,6 @@
 interface TodoListProps {
   items: { id: string; text: string }[]
-  handler: Function
+  handler: (id: string) => void
 }
 
 const TodoList = (props: TodoListProps) => {
@@ -10,7 +10,7 @@ const TodoList = (props: TodoListProps) => {
       {items.map((todo) => (
         <li key={todo.id} id={todo.id}>
           <span>{todo.text}</span>
-          <button onClick={() => handler(todo.id)}>DELETE</button>
+          <button onClick={handler.bind(null, todo.id)}>DELETE</button>
         </li>
       ))}
     </ul>
